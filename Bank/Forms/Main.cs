@@ -23,9 +23,8 @@ namespace Bank
 
         private void Main_Load(object sender, EventArgs e)
         {
-            label1.Text = PassedUser.FirstName;
-            label2.Text = PassedUser.LastName;
-            label3.Text = PassedUser.DebitCard.Balance.ToString();
+            lblName.Text = PassedUser.FirstName + " " + PassedUser.LastName;
+            lblBalance.Text = PassedUser.DebitCard.Balance + " BGN";
         }
     }
 }

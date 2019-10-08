@@ -23,25 +23,25 @@ namespace Bank
         }
 
 
-        private void btn_login_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             //Takes the entered values
-            string usr = txt_username.Text.Trim();
-            string pass = txt_pass.Text.Trim();
+            string user = txtUser.Text.Trim();
+            string pass = txtPwd.Text.Trim();
 
             using (OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
-            Data Source=Main.accdb;
+            Data Source=../../Main.accdb;
             Persist Security Info=False;"))
             {
                 connection.Open();
 
-                if (Login(usr, pass, connection))
+                if (CheckLogin(user, pass, connection))
                 {
                     
                     OleDbCommand commandUser;  // create command for User only
                     OleDbDataReader readerUser;  //Reader for User only            
                     commandUser = new OleDbCommand("Select * from Users where username=@1", connection);//Query for checking username and password
-                    commandUser.Parameters.AddWithValue("@1", usr);
+                    commandUser.Parameters.AddWithValue("@1", user);
                     readerUser = commandUser.ExecuteReader();
 
                     if (readerUser != null)
@@ -51,7 +51,7 @@ namespace Bank
                         //Reading from the user Reader
                         while (readerUser.Read())
                         {
-                            currentUser = new User(readerUser["FirstName"].ToString(), readerUser["LastName"].ToString(), Convert.ToInt32(readerUser["CardID"]));
+                            currentUser = new User(readerUser["FirstName"].ToString(), readerUser["LastName"].ToString(),readerUser["cardGUID"].ToString());
                         }
 
                         //Setting the DebitCard property with method that returns the Card from the DB that is with the associated ID
@@ -63,17 +63,28 @@ namespace Bank
                         frm.Show();
                         this.Hide();
                         frm.Closed += (s, args) => this.Close();
-                        frm.Show();
+                        frm.Show();                       
                     }
                 }
                 else
                 {
                     MessageBox.Show("Wrong username or password!");
-                    txt_username.Text = "";
-                    txt_pass.Text = "";
+                    txtUser.Text = "";
+                    txtPwd.Text = "";
                 }
             }
-        }  
+        }
+
+        private void btnReg_Click(object sender, EventArgs e)
+        {
+            Register frm = new Register();
+            frm.Show();
+            this.Hide();
+            frm.Closed += (s, args) => this.Close();
+            frm.Show();
+        }
+
+
     }
 }
 

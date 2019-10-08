@@ -12,15 +12,15 @@ namespace Bank.Classes
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int CardID { get; set; }
+        public string CardGUID { get; set; }
         public Card DebitCard { get; set; }
 
         public User() { }
-        public User(string firstName, string lastName,int cardID)
+        public User(string firstName, string lastName,string cardGUID)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.CardID = cardID;
+            this.CardGUID = cardGUID;
         }
 
     }

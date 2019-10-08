@@ -9,21 +9,22 @@ namespace Bank.Classes
 {
     public class Card
     {
-      
 
-        public int CardID { get; set; }
+
+        public string CardGUID { get; set; }
         public decimal Balance { get; set; }
         public int PIN { get; set; }
 
         public Card() { }
-        public Card(int cardID, decimal balance, int pin)
+        public Card(string cardGUID, decimal balance, int pin)
         {
-            this.CardID = cardID;
+            this.CardGUID = cardGUID;
             this.Balance = balance;
             this.PIN = pin;
         }
 
-        public void Deposit(decimal money, OleDbConnection conn) {
+        public void Deposit(decimal money, OleDbConnection conn)
+        {
             if (money > 0m)
             {
                 this.Balance += money;
@@ -33,14 +34,14 @@ namespace Bank.Classes
                 string query = "UPDATE Cards SET Balance=@1 WHERE ID=@2";
                 var accessUpdateCommand = new OleDbCommand(query, conn);
                 accessUpdateCommand.Parameters.AddWithValue("@1", this.Balance);
-                accessUpdateCommand.Parameters.AddWithValue("@2", this.CardID); 
+                accessUpdateCommand.Parameters.AddWithValue("@2", this.CardGUID);
                 da.UpdateCommand = accessUpdateCommand;
                 da.UpdateCommand.ExecuteNonQuery();
             }
         }
         public void Withdraw(decimal money, OleDbConnection conn)
         {
-            if (money > 0m)
+            if (money > 0m && this.Balance > money)
             {
                 this.Balance -= money;
 
@@ -49,7 +50,7 @@ namespace Bank.Classes
                 string query = "UPDATE Cards SET Balance=@1 WHERE ID=@2";
                 var accessUpdateCommand = new OleDbCommand(query, conn);
                 accessUpdateCommand.Parameters.AddWithValue("@1", this.Balance);
-                accessUpdateCommand.Parameters.AddWithValue("@2", this.CardID);
+                accessUpdateCommand.Parameters.AddWithValue("@2", this.CardGUID);
                 da.UpdateCommand = accessUpdateCommand;
                 da.UpdateCommand.ExecuteNonQuery();
             }
