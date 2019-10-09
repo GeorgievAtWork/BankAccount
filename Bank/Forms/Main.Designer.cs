@@ -50,6 +50,7 @@
             this.btnDeposit.TabIndex = 0;
             this.btnDeposit.Text = "+";
             this.btnDeposit.UseVisualStyleBackColor = false;
+            this.btnDeposit.Click += new System.EventHandler(this.btnDeposit_Click);
             // 
             // btnWithdraw
             // 
@@ -64,6 +65,7 @@
             this.btnWithdraw.TabIndex = 1;
             this.btnWithdraw.Text = "-";
             this.btnWithdraw.UseVisualStyleBackColor = false;
+            this.btnWithdraw.Click += new System.EventHandler(this.btnWithdraw_Click);
             // 
             // lblMainWelcome
             // 
@@ -79,7 +81,7 @@
             // 
             this.lblBalanceText.AutoSize = true;
             this.lblBalanceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalanceText.Location = new System.Drawing.Point(261, 168);
+            this.lblBalanceText.Location = new System.Drawing.Point(232, 166);
             this.lblBalanceText.Name = "lblBalanceText";
             this.lblBalanceText.Size = new System.Drawing.Size(91, 24);
             this.lblBalanceText.TabIndex = 3;
@@ -89,7 +91,7 @@
             // 
             this.lblBalance.AutoSize = true;
             this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalance.Location = new System.Drawing.Point(358, 168);
+            this.lblBalance.Location = new System.Drawing.Point(329, 166);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(47, 24);
             this.lblBalance.TabIndex = 4;
@@ -108,6 +110,7 @@
             this.btnLog.TabIndex = 5;
             this.btnLog.Text = "Log";
             this.btnLog.UseVisualStyleBackColor = false;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
             // lblName
             // 

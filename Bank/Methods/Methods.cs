@@ -7,12 +7,33 @@ using System.Threading.Tasks;
 using Bank.Classes;
 using System.Text.RegularExpressions;
 using BCrypt.Net;
+using System.Data;
+using System.Windows.Forms;
 
 namespace Bank.Methods
 {
     using BCrypt = BCrypt.Net.BCrypt;
     public class Methods
     {
+        
+        //Method that checks the PIN for additional security
+        public static bool CheckPIN(int enteredPIN, int dbPIN)
+        {
+            return (enteredPIN == dbPIN);
+        }
+
+        //Method that logs any deposit/withdrawal from card
+        public static void LogChanges(string cardGUID, string date, string type, decimal amount, OleDbConnection conn)
+        {
+            OleDbCommand commandLog = new OleDbCommand("INSERT INTO Logs (CardGUID, [Date], Type, Amount) values (@1,@2,@3,@4)", conn);
+            commandLog.Parameters.AddWithValue("@1", cardGUID);
+            commandLog.Parameters.AddWithValue("@2", date);
+            commandLog.Parameters.AddWithValue("@3", type);
+            commandLog.Parameters.AddWithValue("@4", amount);
+            commandLog.ExecuteNonQuery();
+
+        }
+
         //Method that validates the information that the user inputted to the registration form and returns list with errors
         public static List<string> ValidateRegister(string user, string password, string retypedPwd, string fName, string lName, string amount, OleDbConnection connection)
         {
@@ -24,7 +45,7 @@ namespace Bank.Methods
                 errors.Add("Please input all fields!");
                 return errors;
             }
-            
+
 
             //Checks if password is retyped correctly
             if (retypedPwd != password)

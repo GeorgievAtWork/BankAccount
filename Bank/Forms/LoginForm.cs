@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Bank.Classes;
 using static Bank.Methods.Methods;
 using BCrypt.Net;
+using Microsoft.VisualBasic;
 
 namespace Bank
 {
@@ -37,33 +38,50 @@ namespace Bank
 
                 if (CheckLogin(user, pass, connection))
                 {
-                    
+
                     OleDbCommand commandUser;  // create command for User only
                     OleDbDataReader readerUser;  //Reader for User only            
                     commandUser = new OleDbCommand("Select * from Users where username=@1", connection);//Query for checking username and password
                     commandUser.Parameters.AddWithValue("@1", user);
                     readerUser = commandUser.ExecuteReader();
 
-                    if (readerUser != null)
+
+                    //Creating new User object
+                    User currentUser = new User();
+                    //Reading from the user Reader
+                    while (readerUser.Read())
                     {
-                        //Creating new User object
-                        User currentUser = new User();
-                        //Reading from the user Reader
-                        while (readerUser.Read())
+                        currentUser = new User(readerUser["FirstName"].ToString(), readerUser["LastName"].ToString(), readerUser["cardGUID"].ToString());
+                    }
+
+
+                    //Setting the DebitCard property with method that returns the Card from the DB that is with the associated ID
+                    currentUser.DebitCard = SetCardToUser(currentUser, connection);
+                    var pin = Interaction.InputBox("Enter your PIN for additional security", "PIN prompt").ToString();
+                    if (int.TryParse(pin, out int parsedPIN))
+                    {
+                        //Checks for PIN for additional security
+                        if (CheckPIN(parsedPIN, currentUser.DebitCard.PIN))
                         {
-                            currentUser = new User(readerUser["FirstName"].ToString(), readerUser["LastName"].ToString(),readerUser["cardGUID"].ToString());
+                            //Closing the current form and opens the main one while passing the current user
+                            Main frm = new Main(currentUser);
+                            frm.Show();
+                            this.Hide();
+                            frm.Closed += (s, args) => this.Close();
+                            frm.Show();
                         }
-
-                        //Setting the DebitCard property with method that returns the Card from the DB that is with the associated ID
-                        currentUser.DebitCard = SetCardToUser(currentUser, connection);
-
-
-                        //Closing the current form and opens the main one while passing the current user
-                        Main frm = new Main(currentUser);
-                        frm.Show();
-                        this.Hide();
-                        frm.Closed += (s, args) => this.Close();
-                        frm.Show();                       
+                        else
+                        {
+                            MessageBox.Show("Wrong PIN!");
+                            txtUser.Text = "";
+                            txtPwd.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("PIN format not correct!");
+                        txtUser.Text = "";
+                        txtPwd.Text = "";
                     }
                 }
                 else
