@@ -43,13 +43,13 @@ namespace Bank
             {
                 //Deposits upon success
                 PassedUser.DebitCard.Deposit(amount);
-                MessageBox.Show("Money deposited successfully!");
+                MessageBox.Show("Money deposited successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Updates the label
                 lblBalance.Text = PassedUser.DebitCard.Balance.ToString() + " BGN";
             }
             else
             {
-                MessageBox.Show("Value not correct!");
+                MessageBox.Show("Value not correct!","Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -66,18 +66,18 @@ namespace Bank
                 {
                     //Withdraws upon success
                     PassedUser.DebitCard.Withdraw(amount);
-                    MessageBox.Show("Money withdrawn successfully!");
+                    MessageBox.Show("Money withdrawn successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Updates the label
                     lblBalance.Text = PassedUser.DebitCard.Balance.ToString() + " BGN";
                 }
                 else
                 {
-                    MessageBox.Show("Not enough balance!");
+                    MessageBox.Show("Not enough balance!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Value not correct!");
+                MessageBox.Show("Value not correct!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

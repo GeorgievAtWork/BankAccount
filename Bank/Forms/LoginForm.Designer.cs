@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.lblWelcome = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPwd = new System.Windows.Forms.TextBox();
@@ -83,21 +83,27 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
+            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.Location = new System.Drawing.Point(90, 197);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(96, 30);
+            this.btnLogin.Size = new System.Drawing.Size(96, 42);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
+            this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnReg
             // 
+            this.btnReg.Image = ((System.Drawing.Image)(resources.GetObject("btnReg.Image")));
+            this.btnReg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReg.Location = new System.Drawing.Point(215, 197);
             this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(96, 30);
+            this.btnReg.Size = new System.Drawing.Size(96, 42);
             this.btnReg.TabIndex = 6;
             this.btnReg.Text = "Register";
+            this.btnReg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReg.UseVisualStyleBackColor = true;
             this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
             // 
@@ -114,6 +120,8 @@
             this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.lblWelcome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(430, 320);
             this.MinimumSize = new System.Drawing.Size(430, 320);
             this.Name = "LoginForm";
@@ -125,8 +133,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPwd;

@@ -72,21 +72,21 @@ namespace Bank
                         }
                         else
                         {
-                            MessageBox.Show("Wrong PIN!");
+                            MessageBox.Show("Wrong PIN!","Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                             txtUser.Text = "";
                             txtPwd.Text = "";
                         }
                     }
                     else
                     {
-                        MessageBox.Show("PIN format not correct!");
+                        MessageBox.Show("PIN format not correct!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtUser.Text = "";
                         txtPwd.Text = "";
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Wrong username or password!");
+                    MessageBox.Show("Wrong username or password!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUser.Text = "";
                     txtPwd.Text = "";
                 }

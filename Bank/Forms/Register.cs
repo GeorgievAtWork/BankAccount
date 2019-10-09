@@ -47,7 +47,7 @@ namespace Bank
                 {
 
                     RegisterUser(username, pass, fName, lName, Convert.ToDecimal(amount), connection);
-                    MessageBox.Show("Registered successfully!");
+                    MessageBox.Show("Registered successfully!","Success!",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                     LoginForm frm = new LoginForm();
                     frm.Show();

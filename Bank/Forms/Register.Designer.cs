@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.lblRegWelcome = new System.Windows.Forms.Label();
             this.txtRegUser = new System.Windows.Forms.TextBox();
             this.lblRegUser = new System.Windows.Forms.Label();
@@ -174,11 +175,11 @@
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(277, 435);
+            this.btnRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnRegister.Image")));
+            this.btnRegister.Location = new System.Drawing.Point(277, 414);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(139, 50);
+            this.btnRegister.Size = new System.Drawing.Size(139, 71);
             this.btnRegister.TabIndex = 13;
-            this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
@@ -213,6 +214,7 @@
             this.Controls.Add(this.lblRegUser);
             this.Controls.Add(this.txtRegUser);
             this.Controls.Add(this.lblRegWelcome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(710, 600);
             this.MinimumSize = new System.Drawing.Size(710, 600);
