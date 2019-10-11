@@ -40,25 +40,19 @@ namespace Bank
 
 
 
-                //Calling the method that validates the user info
-                var errorList = ValidateRegister(username, pass, retypedPwd, fName, lName, amount, connection);
-                //If the returned array of errors contains no errors proceed with the registration
-                if (errorList.Count == 0)
+                var error = ValidateRegister(username, pass, retypedPwd, fName, lName, amount, connection);
+                //If the returned string is empty proceed with the registration
+                if (error.Length < 1)
                 {
+                    int pin = RegisterUser(username, pass, fName, lName, Convert.ToDecimal(amount), connection);
+                    MessageBox.Show($"Registered successfully! Your PIN is: {pin}, please keep it safe!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    RegisterUser(username, pass, fName, lName, Convert.ToDecimal(amount), connection);
-                    MessageBox.Show("Registered successfully!","Success!",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-                    LoginForm frm = new LoginForm();
-                    frm.Show();
-                    this.Hide();
-                    frm.Closed += (s, args) => this.Close();
-                    frm.Show();
+                    this.Close();
                 }
                 else
                 {
                     //If there are errors they are written in label
-                    lblRegError.Text = errorList[0];
+                    lblRegError.Text = error;
                 }
             }
         }

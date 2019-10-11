@@ -34,24 +34,16 @@ namespace Bank.Methods
 
         }
 
-        //Method that validates the information that the user inputted to the registration form and returns list with errors
-        public static List<string> ValidateRegister(string user, string password, string retypedPwd, string fName, string lName, string amount, OleDbConnection connection)
+        //Method that validates the information that the user inputted to the registration form and returns error as string
+        public static string ValidateRegister(string user, string password, string retypedPwd, string fName, string lName, string amount, OleDbConnection connection)
         {
-            List<string> errors = new List<string>();
+            string error = "";
 
             //Checks for blank fields
             if (user.Length == 0 || password.Length == 0 || retypedPwd.Length == 0 || fName.Length == 0 || lName.Length == 0 || amount.Length == 0)
             {
-                errors.Add("Please input all fields!");
-                return errors;
-            }
-
-
-            //Checks if password is retyped correctly
-            if (retypedPwd != password)
-            {
-                errors.Add("The passwords don't match!");
-                return errors;
+                error = "Please input all fields!";
+                return error;
             }
 
             //Query for checking if username exists
@@ -62,9 +54,17 @@ namespace Bank.Methods
             //The check
             if (readerRegister.HasRows)
             {
-                errors.Add("This username is already used!");
-                return errors;
+                error = "This username is already used!";
+                return error;
             }
+
+            //Checks if password is retyped correctly
+            if (retypedPwd != password)
+            {
+                error = "The passwords don't match!";
+                return error;
+            }
+
 
             //Checking for password strength using regular expressions
             var hasNumber = new Regex(@"[0-9]+");
@@ -75,15 +75,14 @@ namespace Bank.Methods
 
             if (isPwdOk == false)
             {
-                errors.Add("Password doesn't meet the requirements!");
+                error = "Password doesn't meet the requirements!";
             }
 
-            return errors;
-
+            return error;
 
         }
         //Method that registers the user and its debit card
-        public static void RegisterUser(string user, string password, string fName, string lName, decimal amount, OleDbConnection connection)
+        public static int RegisterUser(string user, string password, string fName, string lName, decimal amount, OleDbConnection connection)
         {
             //Creating GUID for the card unique ID
             var newGuid = Guid.NewGuid();
@@ -101,12 +100,15 @@ namespace Bank.Methods
 
             //Used in creating PIN
             Random rand = new Random();
+            int pin = rand.Next(1000, 9999);
             //Query for creating the new Debit card for the newly created user
             OleDbCommand CommandRegisterCard = new OleDbCommand("INSERT INTO Cards ([GUID],Balance,PIN) VALUES (@guid,@amount,@pin)", connection);
             CommandRegisterCard.Parameters.AddWithValue("@guid", newGuid);
             CommandRegisterCard.Parameters.AddWithValue("@amount", amount);
-            CommandRegisterCard.Parameters.AddWithValue("@pin", rand.Next(1000, 9999));
+            CommandRegisterCard.Parameters.AddWithValue("@pin", pin);
             CommandRegisterCard.ExecuteNonQuery();
+
+            return pin;
 
 
         }
