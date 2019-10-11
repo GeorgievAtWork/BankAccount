@@ -72,7 +72,7 @@ namespace Bank
                         }
                         else
                         {
-                            MessageBox.Show("Wrong PIN!","Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                            MessageBox.Show("Wrong PIN!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             txtUser.Text = "";
                             txtPwd.Text = "";
                         }
@@ -96,9 +96,6 @@ namespace Bank
         private void btnReg_Click(object sender, EventArgs e)
         {
             Register frm = new Register();
-            frm.Show();
-            this.Hide();
-            frm.Closed += (s, args) => this.Close();
             frm.Show();
         }
 

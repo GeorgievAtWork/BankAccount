@@ -44,6 +44,7 @@
             this.txtRegAmount = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lblRegError = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblRegWelcome
@@ -194,11 +195,25 @@
             this.lblRegError.TabIndex = 14;
             this.lblRegError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(593, 511);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 38);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Back";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 561);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblRegError);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.lblRegAmount);
@@ -242,5 +257,6 @@
         private System.Windows.Forms.TextBox txtRegAmount;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lblRegError;
+        private System.Windows.Forms.Button button1;
     }
 }
