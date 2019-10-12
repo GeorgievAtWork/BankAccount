@@ -56,7 +56,7 @@ namespace Bank.Classes
         //Method that withdraws money and then updates the DB
         public void Withdraw(decimal money)
         {
-            if (money > 0m && this.Balance > money)
+            if (money > 0m && this.Balance >= money)
             {
                 this.Balance -= money;
 

@@ -46,6 +46,14 @@ namespace Bank
                 MessageBox.Show("Money deposited successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Updates the label
                 lblBalance.Text = PassedUser.DebitCard.Balance.ToString() + " BGN";
+                if (PassedUser.DebitCard.Balance == 0m)
+                {
+                    lblBalance.ForeColor = Color.Red;
+                }
+                else
+                {
+                    lblBalance.ForeColor = Color.Lime;
+                }
             }
             else
             {
