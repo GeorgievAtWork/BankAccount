@@ -47,7 +47,8 @@ namespace Bank
                 //Updates the label
                 lblBalance.Text = PassedUser.DebitCard.Balance.ToString() + " BGN";                    
                 lblBalance.ForeColor = Color.Lime;
-                
+                btnWithdraw.Enabled = true;
+
             }
             else
             {
@@ -74,10 +75,12 @@ namespace Bank
                     if (PassedUser.DebitCard.Balance == 0m)
                     {
                         lblBalance.ForeColor = Color.Red;
+                        btnWithdraw.Enabled = false;
                     }
                     else
                     {
                         lblBalance.ForeColor = Color.Lime;
+                        btnWithdraw.Enabled = true;
                     }
                 }
                 else
@@ -98,5 +101,7 @@ namespace Bank
             logsView.Show();
             
         }
+
+       
     }
 }

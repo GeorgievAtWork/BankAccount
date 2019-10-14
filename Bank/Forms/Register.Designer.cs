@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.lblRegWelcome = new System.Windows.Forms.Label();
             this.txtRegUser = new System.Windows.Forms.TextBox();
@@ -44,7 +45,9 @@
             this.txtRegAmount = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lblRegError = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRegWelcome
@@ -67,6 +70,7 @@
             this.txtRegUser.Name = "txtRegUser";
             this.txtRegUser.Size = new System.Drawing.Size(147, 26);
             this.txtRegUser.TabIndex = 1;
+            this.txtRegUser.TextChanged += new System.EventHandler(this.txtRegUser_TextChanged);
             // 
             // lblRegUser
             // 
@@ -96,6 +100,7 @@
             this.txtRegPwd.PasswordChar = '*';
             this.txtRegPwd.Size = new System.Drawing.Size(147, 26);
             this.txtRegPwd.TabIndex = 3;
+            this.txtRegPwd.TextChanged += new System.EventHandler(this.txtRegPwd_TextChanged);
             // 
             // lblRegRetypePwd
             // 
@@ -115,6 +120,7 @@
             this.txtRegRetypePwd.PasswordChar = '*';
             this.txtRegRetypePwd.Size = new System.Drawing.Size(147, 26);
             this.txtRegRetypePwd.TabIndex = 5;
+            this.txtRegRetypePwd.TextChanged += new System.EventHandler(this.txtRegRetypePwd_TextChanged);
             // 
             // lblRegFirstName
             // 
@@ -133,7 +139,7 @@
             this.txtRegFirstName.Name = "txtRegFirstName";
             this.txtRegFirstName.Size = new System.Drawing.Size(147, 26);
             this.txtRegFirstName.TabIndex = 7;
-            this.txtRegFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRegFirstName_KeyPress);
+            this.txtRegFirstName.TextChanged += new System.EventHandler(this.txtRegFirstName_TextChanged);
             // 
             // lblRegLastName
             // 
@@ -152,7 +158,7 @@
             this.txtRegLastName.Name = "txtRegLastName";
             this.txtRegLastName.Size = new System.Drawing.Size(147, 26);
             this.txtRegLastName.TabIndex = 9;
-            this.txtRegLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRegLastName_KeyPress);
+            this.txtRegLastName.TextChanged += new System.EventHandler(this.txtRegLastName_TextChanged);
             // 
             // lblRegAmount
             // 
@@ -171,7 +177,7 @@
             this.txtRegAmount.Name = "txtRegAmount";
             this.txtRegAmount.Size = new System.Drawing.Size(147, 26);
             this.txtRegAmount.TabIndex = 11;
-            this.txtRegAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRegAmount_KeyPress);
+            this.txtRegAmount.TextChanged += new System.EventHandler(this.txtRegAmount_TextChanged);
             // 
             // btnRegister
             // 
@@ -195,25 +201,31 @@
             this.lblRegError.TabIndex = 14;
             this.lblRegError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btnBack
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(593, 511);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 38);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Back";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.Location = new System.Drawing.Point(593, 511);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(89, 38);
+            this.btnBack.TabIndex = 15;
+            this.btnBack.Text = "Back";
+            this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
             // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 561);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblRegError);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.lblRegAmount);
@@ -235,6 +247,7 @@
             this.MinimumSize = new System.Drawing.Size(710, 600);
             this.Name = "Register";
             this.Text = "Register";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,6 +270,7 @@
         private System.Windows.Forms.TextBox txtRegAmount;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lblRegError;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

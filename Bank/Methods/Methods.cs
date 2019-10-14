@@ -16,6 +16,8 @@ namespace Bank.Methods
     public class Methods
     {
         
+
+
         //Method that checks the PIN for additional security
         public static bool CheckPIN(int enteredPIN, int dbPIN)
         {
@@ -32,55 +34,8 @@ namespace Bank.Methods
             commandLog.Parameters.AddWithValue("@4", amount);
             commandLog.ExecuteNonQuery();
 
-        }
-
-        //Method that validates the information that the user inputted to the registration form and returns error as string
-        public static string ValidateRegister(string user, string password, string retypedPwd, string fName, string lName, string amount, OleDbConnection connection)
-        {
-            string error = "";
-
-            //Checks for blank fields
-            if (user.Length == 0 || password.Length == 0 || retypedPwd.Length == 0 || fName.Length == 0 || lName.Length == 0 || amount.Length == 0)
-            {
-                error = "Please input all fields!";
-                return error;
-            }
-
-            //Query for checking if username exists
-            OleDbCommand commandRegister = new OleDbCommand("Select Username from Users where Username=@1", connection);
-            commandRegister.Parameters.AddWithValue("@1", user);
-            OleDbDataReader readerRegister = commandRegister.ExecuteReader();
-
-            //The check
-            if (readerRegister.HasRows)
-            {
-                error = "This username is already used!";
-                return error;
-            }
-
-            //Checks if password is retyped correctly
-            if (retypedPwd != password)
-            {
-                error = "The passwords don't match!";
-                return error;
-            }
-
-
-            //Checking for password strength using regular expressions
-            var hasNumber = new Regex(@"[0-9]+");
-            var hasUpperChar = new Regex(@"[A-Z]+");
-            var hasMinimum8Chars = new Regex(@".{8,}");
-
-            var isPwdOk = hasNumber.IsMatch(password) && hasUpperChar.IsMatch(password) && hasMinimum8Chars.IsMatch(password);
-
-            if (isPwdOk == false)
-            {
-                error = "Password doesn't meet the requirements!";
-            }
-
-            return error;
-
-        }
+        }     
+      
         //Method that registers the user and its debit card
         public static int RegisterUser(string user, string password, string fName, string lName, decimal amount, OleDbConnection connection)
         {
