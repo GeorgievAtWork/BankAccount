@@ -21,6 +21,7 @@ namespace Bank
         public LoginForm()
         {
             InitializeComponent();
+            this.Select();
         }
 
 
@@ -87,8 +88,16 @@ namespace Bank
                 else
                 {
                     MessageBox.Show("Wrong username or password!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtUser.Text = "";
-                    txtPwd.Text = "";
+                    txtUser.Text = "Username";
+                    txtPwd.Text = "Password";
+                    txtPwd.PasswordChar = '\0';
+                    txtUser.ForeColor = Color.Red;
+                    txtPwd.ForeColor = Color.Red;
+                    panel2.BackColor = Color.Red;
+                    panel3.BackColor = Color.Red;
+                    pictureBox2.BackgroundImage = new Bitmap(Bank.Properties.Resources.user_red);
+                    pictureBox3.BackgroundImage = new Bitmap(Bank.Properties.Resources.lock_red);
+
                 }
             }
         }
@@ -97,6 +106,51 @@ namespace Bank
         {
             Register frm = new Register();
             frm.Show();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txtUser_Focus(object sender, EventArgs e)
+        {
+            pictureBox2.BackgroundImage = new Bitmap(Bank.Properties.Resources.user);
+            txtUser.ForeColor = SystemColors.WindowText;
+            panel2.BackColor = SystemColors.WindowText;
+            if (txtUser.Text == "Username")
+            {
+                txtUser.Text = "";
+            }
+        }
+
+        private void txtPwd_Focus(object sender, EventArgs e)
+        {
+            pictureBox3.BackgroundImage = new Bitmap(Bank.Properties.Resources._lock);
+            txtPwd.ForeColor = SystemColors.WindowText;
+            panel3.BackColor = SystemColors.WindowText;
+            if (txtPwd.Text == "Password")
+            {
+                txtPwd.Text = "";
+                txtPwd.PasswordChar = '*';
+            }
+        }
+
+        private void txtPwd_Leave(object sender, EventArgs e)
+        {
+            if (txtPwd.Text == "")
+            {
+                txtPwd.Text = "Password";
+                txtPwd.PasswordChar = '\0';
+            }
+        }
+
+        private void txtUser_Leave(object sender, EventArgs e)
+        {
+            if (txtUser.Text == "")
+            {
+                txtUser.Text = "Username";
+            }
         }
 
 
