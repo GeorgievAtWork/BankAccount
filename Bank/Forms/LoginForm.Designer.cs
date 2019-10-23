@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -51,7 +52,7 @@
             this.txtUser.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(111, 210);
+            this.txtUser.Location = new System.Drawing.Point(111, 238);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(170, 20);
             this.txtUser.TabIndex = 1;
@@ -63,11 +64,11 @@
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(190)))), ((int)(((byte)(138)))));
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Verdana", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogin.Location = new System.Drawing.Point(81, 359);
+            this.btnLogin.Location = new System.Drawing.Point(81, 376);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(96, 42);
             this.btnLogin.TabIndex = 5;
@@ -79,11 +80,11 @@
             // 
             this.btnReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(190)))), ((int)(((byte)(138)))));
             this.btnReg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReg.FlatAppearance.BorderSize = 0;
+            this.btnReg.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.btnReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReg.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReg.Font = new System.Drawing.Font("Verdana", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReg.Location = new System.Drawing.Point(185, 359);
+            this.btnReg.Location = new System.Drawing.Point(185, 376);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(96, 42);
             this.btnReg.TabIndex = 6;
@@ -95,7 +96,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.WindowText;
             this.panel2.ForeColor = System.Drawing.Color.Maroon;
-            this.panel2.Location = new System.Drawing.Point(81, 236);
+            this.panel2.Location = new System.Drawing.Point(81, 264);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 1);
             this.panel2.TabIndex = 9;
@@ -103,7 +104,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.WindowText;
-            this.panel3.Location = new System.Drawing.Point(81, 295);
+            this.panel3.Location = new System.Drawing.Point(81, 323);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 1);
             this.panel3.TabIndex = 12;
@@ -113,7 +114,7 @@
             this.txtPwd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtPwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPwd.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPwd.Location = new System.Drawing.Point(111, 269);
+            this.txtPwd.Location = new System.Drawing.Point(111, 297);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(170, 20);
             this.txtPwd.TabIndex = 10;
@@ -125,7 +126,7 @@
             // 
             this.pictureBox3.BackgroundImage = global::Bank.Properties.Resources._lock;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(81, 269);
+            this.pictureBox3.Location = new System.Drawing.Point(81, 297);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 20);
             this.pictureBox3.TabIndex = 11;
@@ -135,7 +136,7 @@
             // 
             this.pictureBox2.BackgroundImage = global::Bank.Properties.Resources.user;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(81, 210);
+            this.pictureBox2.Location = new System.Drawing.Point(81, 238);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 20);
             this.pictureBox2.TabIndex = 8;
@@ -176,12 +177,24 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Bank.Properties.Resources.Logo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(362, 157);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.AutoSize = true;
+            this.txtTitle.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitle.Location = new System.Drawing.Point(150, 183);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(62, 23);
+            this.txtTitle.TabIndex = 13;
+            this.txtTitle.Text = "Login";
             // 
             // LoginForm
             // 
@@ -189,6 +202,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(362, 455);
+            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.txtPwd);
@@ -201,6 +215,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(362, 455);
+            this.MinimumSize = new System.Drawing.Size(362, 455);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -225,6 +241,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label txtTitle;
     }
 }
 

@@ -12,12 +12,22 @@ using Bank.Classes;
 using static Bank.Methods.Methods;
 using BCrypt.Net;
 using Microsoft.VisualBasic;
+using System.Runtime.InteropServices;
+
 
 namespace Bank
 {
     using BCrypt = BCrypt.Net.BCrypt;
     public partial class LoginForm : Form
     {
+        //Consts for draggable flat form
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
         public LoginForm()
         {
             InitializeComponent();
@@ -74,15 +84,17 @@ namespace Bank
                         else
                         {
                             MessageBox.Show("Wrong PIN!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtUser.Text = "";
-                            txtPwd.Text = "";
+                            txtUser.Text = "Username";
+                            txtPwd.Text = "Password";
+                            txtPwd.PasswordChar = '\0';
                         }
                     }
                     else
                     {
                         MessageBox.Show("PIN format not correct!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtUser.Text = "";
-                        txtPwd.Text = "";
+                        txtUser.Text = "Username";
+                        txtPwd.Text = "Password";
+                        txtPwd.PasswordChar = '\0';
                     }
                 }
                 else
@@ -122,6 +134,14 @@ namespace Bank
             {
                 txtUser.Text = "";
             }
+        }       
+
+        private void txtUser_Leave(object sender, EventArgs e)
+        {
+            if (txtUser.Text == "")
+            {
+                txtUser.Text = "Username";
+            }
         }
 
         private void txtPwd_Focus(object sender, EventArgs e)
@@ -145,15 +165,14 @@ namespace Bank
             }
         }
 
-        private void txtUser_Leave(object sender, EventArgs e)
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (txtUser.Text == "")
+            if (e.Button == MouseButtons.Left)
             {
-                txtUser.Text = "Username";
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
-
     }
 }
 
