@@ -3,10 +3,7 @@ C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\bin\Debug\Bank.exe
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\bin\Debug\Bank.pdb
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\bin\Debug\BCrypt.Net-Next.dll
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\bin\Debug\BCrypt.Net-Next.xml
-C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.csprojAssemblyReference.cache
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.LoginForm.resources
-C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Forms.LogsView.resources
-C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Main.resources
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Register.resources
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Properties.Resources.resources
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.csproj.GenerateResource.cache
@@ -14,3 +11,8 @@ C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.csproj.Co
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.csproj.CopyComplete
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.exe
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.pdb
+C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Forms.Main.resources
+C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Custom_Controls.Dashboard.resources
+C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Custom_Controls.Deposit.resources
+C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Custom_Controls.Withdraw.resources
+C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Custom_Controls.Logs.resources

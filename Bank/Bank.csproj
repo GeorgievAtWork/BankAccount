@@ -52,17 +52,35 @@
   <ItemGroup>
     <Compile Include="Classes\Card.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Custom Controls\Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\Deposit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\Deposit.Designer.cs">
+      <DependentUpon>Deposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\Logs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\Logs.Designer.cs">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\Withdraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\Withdraw.Designer.cs">
+      <DependentUpon>Withdraw.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\LogsView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\LogsView.Designer.cs">
-      <DependentUpon>LogsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
@@ -79,11 +97,20 @@
     <Compile Include="Forms\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Custom Controls\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\Deposit.resx">
+      <DependentUpon>Deposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\Logs.resx">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\Withdraw.resx">
+      <DependentUpon>Withdraw.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LogsView.resx">
-      <DependentUpon>LogsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -138,6 +165,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deposit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Withdraw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

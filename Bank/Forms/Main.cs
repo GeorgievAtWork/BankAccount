@@ -8,16 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bank.Classes;
-using Microsoft.VisualBasic;
-using static Bank.Methods.Methods;
-using Bank.Forms;
+using Bank.Custom_Controls;
+using System.Runtime.InteropServices;
 
 
-namespace Bank
+namespace Bank.Forms
 {
     public partial class Main : Form
     {
         public User PassedUser { get; set; }
+
+        //Consts for draggable flat form
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
 
         public Main(User passedUser)
         {
@@ -25,83 +32,64 @@ namespace Bank
             this.PassedUser = passedUser;
         }
 
-
+        //Default loads the dashboard user control
         private void Main_Load(object sender, EventArgs e)
         {
-            //Changes the values for the labels
-            lblName.Text = PassedUser.FirstName + " " + PassedUser.LastName;
-            lblBalance.Text = PassedUser.DebitCard.Balance + " BGN";
+            Control dashboard = new Dashboard(this.PassedUser);
+            lblHead.Text = "Dashboard";
+            panelUserControlHolder.Controls.Add(dashboard);
         }
 
-        private void btnDeposit_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            //Inputbox for the amount
-            string value = Interaction.InputBox("Enter amount to deposit:", "Enter amount:");
-
-            //Tries to parse the amount as usable decimal
-            if (decimal.TryParse(value, out decimal amount))
-            {
-                //Deposits upon success
-                PassedUser.DebitCard.Deposit(amount);
-                MessageBox.Show("Money deposited successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Updates the label
-                lblBalance.Text = PassedUser.DebitCard.Balance.ToString() + " BGN";                    
-                lblBalance.ForeColor = Color.Lime;
-                btnWithdraw.Enabled = true;
-
-            }
-            else
-            {
-                MessageBox.Show("Value not correct!","Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+            this.Close();
         }
 
-        private void btnWithdraw_Click(object sender, EventArgs e)
+        //On click loads different user controls in the panel, while also clearing the others and setting the current panel on the selected button
+        private void btnViewHome_Click(object sender, EventArgs e)
         {
-            //Inputbox for the amount
-            string value = Interaction.InputBox("Enter amount to withdraw:", "Enter amount:");
-
-            //Tries to parse the amount as usable decimal
-            if (decimal.TryParse(value, out decimal amount))
-            {
-                //Checks if the wanted amount for withdrawal is more than the current balance
-                if (amount <= PassedUser.DebitCard.Balance)
-                {
-                    //Withdraws upon success
-                    PassedUser.DebitCard.Withdraw(amount);
-                    MessageBox.Show("Money withdrawn successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //Updates the label
-                    lblBalance.Text = PassedUser.DebitCard.Balance.ToString() + " BGN";
-                    if (PassedUser.DebitCard.Balance == 0m)
-                    {
-                        lblBalance.ForeColor = Color.Red;
-                        btnWithdraw.Enabled = false;
-                    }
-                    else
-                    {
-                        lblBalance.ForeColor = Color.Lime;
-                        btnWithdraw.Enabled = true;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Not enough balance!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Value not correct!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Control dashboard = new Dashboard(this.PassedUser);
+            lblHead.Text = "Dashboard";
+            panelUserControlHolder.Controls.Clear();
+            panelUserControlHolder.Controls.Add(dashboard);
+            panelSide.Top = btnViewHome.Top;
         }
 
-        private void btnLog_Click(object sender, EventArgs e)
+        private void btnViewDeposit_Click(object sender, EventArgs e)
         {
-            //DataTable logs = GetLogs(PassedUser.CardGUID);
-            LogsView logsView = new LogsView(PassedUser.DebitCard.CardGUID);
-            logsView.Show();
-            
+            Control deposit = new Deposit(this.PassedUser);
+            panelUserControlHolder.Controls.Clear();
+            panelUserControlHolder.Controls.Add(deposit);
+            panelSide.Top = btnViewDeposit.Top;
+            lblHead.Text = "Deposit";
         }
 
-       
+        private void btnViewWithdraw_Click(object sender, EventArgs e)
+        {
+            Control withdraw = new Withdraw(this.PassedUser);
+            panelUserControlHolder.Controls.Clear();
+            panelUserControlHolder.Controls.Add(withdraw);
+            panelSide.Top = btnViewWithdraw.Top;
+            lblHead.Text = "Withdraw";
+        }
+
+        private void btnViewLogs_Click(object sender, EventArgs e)
+        {
+            Control logs = new Logs(this.PassedUser.DebitCard.CardGUID);
+            panelUserControlHolder.Controls.Clear();
+            panelUserControlHolder.Controls.Add(logs);
+            panelSide.Top = btnViewLogs.Top;
+            lblHead.Text = "Logs";
+        }
+
+        //Draggable
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
     }
 }

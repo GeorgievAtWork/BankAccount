@@ -13,6 +13,7 @@ using static Bank.Methods.Methods;
 using BCrypt.Net;
 using Microsoft.VisualBasic;
 using System.Runtime.InteropServices;
+using Bank.Forms;
 
 
 namespace Bank
@@ -127,9 +128,9 @@ namespace Bank
 
         private void txtUser_Focus(object sender, EventArgs e)
         {
-            pictureBox2.BackgroundImage = new Bitmap(Bank.Properties.Resources.user);
-            txtUser.ForeColor = SystemColors.WindowText;
-            panel2.BackColor = SystemColors.WindowText;
+            pictureBox2.BackgroundImage = new Bitmap(Bank.Properties.Resources.userwhite);
+            txtUser.ForeColor = Color.White;
+            panel2.BackColor = Color.White;
             if (txtUser.Text == "Username")
             {
                 txtUser.Text = "";
@@ -146,9 +147,9 @@ namespace Bank
 
         private void txtPwd_Focus(object sender, EventArgs e)
         {
-            pictureBox3.BackgroundImage = new Bitmap(Bank.Properties.Resources._lock);
-            txtPwd.ForeColor = SystemColors.WindowText;
-            panel3.BackColor = SystemColors.WindowText;
+            pictureBox3.BackgroundImage = new Bitmap(Bank.Properties.Resources.lockwhite);
+            txtPwd.ForeColor = Color.White;
+            panel3.BackColor = Color.White;
             if (txtPwd.Text == "Password")
             {
                 txtPwd.Text = "";
@@ -173,6 +174,8 @@ namespace Bank
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+       
     }
 }
 
