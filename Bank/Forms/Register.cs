@@ -34,7 +34,7 @@ namespace Bank
             //Disables the register button
 
             btnRegister.Enabled = false;
-            this.btnRegister.BackColor = Color.Gray;
+            btnRegister.ForeColor = Color.Gray;
 
             //Changes the Tag property of each control to false
             txtRegAmount.Tag = false;
@@ -116,7 +116,7 @@ namespace Bank
         public void txt_Validation(object sender, object panel)
         {
             btnRegister.Enabled = false;
-            this.btnRegister.BackColor = Color.Gray;
+            this.btnRegister.ForeColor = Color.Gray;
 
             TextBox txt = (TextBox)sender;
             Panel currentPanel = (Panel)panel;
@@ -278,14 +278,16 @@ namespace Bank
         private void EnableRegister()
         {
             this.btnRegister.Enabled = ((bool)txtRegAmount.Tag && (bool)txtRegUser.Tag && (bool)txtRegPwd.Tag && (bool)txtRegRetypePwd.Tag && (bool)txtRegFirstName.Tag && (bool)txtRegLastName.Tag);
-            if (this.btnRegister.Enabled == false)
+            if (btnRegister.Enabled == true)
             {
-                this.btnRegister.BackColor = Color.Gray;
+                btnRegister.ForeColor = Color.Lime;
+                
             }
             else
             {
-                this.btnRegister.BackColor = Color.FromArgb(44, 190, 138);
+                btnRegister.ForeColor = Color.Gray;
             }
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -306,8 +308,8 @@ namespace Bank
         // Event handlers for placeholder text
         private void txtRegUser_Focus(object sender, EventArgs e)
         {
-            txtRegUser.ForeColor = SystemColors.WindowText;
-            panelUser.BackColor = SystemColors.WindowText;
+            txtRegUser.ForeColor = Color.White;
+            panelUser.BackColor = Color.White;
             if (txtRegUser.Text == "Username")
             {
                 txtRegUser.Text = "";
@@ -324,8 +326,8 @@ namespace Bank
 
         private void txtRegPwd_Focus(object sender, EventArgs e)
         {           
-            txtRegPwd.ForeColor = SystemColors.WindowText;
-            panelPwd.BackColor = SystemColors.WindowText;
+            txtRegPwd.ForeColor = Color.White;
+            panelPwd.BackColor = Color.White;
             if (txtRegPwd.Text == "Password")
             {
                 txtRegPwd.Text = "";
@@ -343,8 +345,8 @@ namespace Bank
 
         private void txtRegRetypePwd_Focus(object sender, EventArgs e)
         {
-            txtRegRetypePwd.ForeColor = SystemColors.WindowText;
-            panelRetypePwd.BackColor = SystemColors.WindowText;
+            txtRegRetypePwd.ForeColor = Color.White;
+            panelRetypePwd.BackColor = Color.White;
             if (txtRegRetypePwd.Text == "Retype Password")
             {
                 txtRegRetypePwd.Text = "";
@@ -362,8 +364,8 @@ namespace Bank
 
         private void txtRegFirstName_Focus(object sender, EventArgs e)
         {
-            txtRegFirstName.ForeColor = SystemColors.WindowText;
-            panelFirstName.BackColor = SystemColors.WindowText;
+            txtRegFirstName.ForeColor = Color.White;
+            panelFirstName.BackColor = Color.White;
             if (txtRegFirstName.Text == "First Name")
             {
                 txtRegFirstName.Text = "";
@@ -379,8 +381,8 @@ namespace Bank
 
         private void txtRegLastName_Focus(object sender, EventArgs e)
         {
-            txtRegLastName.ForeColor = SystemColors.WindowText;
-            panelLastName.BackColor = SystemColors.WindowText;
+            txtRegLastName.ForeColor = Color.White;
+            panelLastName.BackColor = Color.White;
             if (txtRegLastName.Text == "Last Name")
             {
                 txtRegLastName.Text = "";
@@ -396,8 +398,8 @@ namespace Bank
 
         private void txtRegAmount_Focus(object sender, EventArgs e)
         {
-            txtRegAmount.ForeColor = SystemColors.WindowText;
-            panelAmount.BackColor = SystemColors.WindowText;
+            txtRegAmount.ForeColor = Color.White;
+            panelAmount.BackColor = Color.White;
             if (txtRegAmount.Text == "Amount")
             {
                 txtRegAmount.Text = "";
