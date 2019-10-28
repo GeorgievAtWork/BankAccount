@@ -149,9 +149,6 @@
     <None Include="Resources\lock.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Deposit.png" />
   </ItemGroup>
   <ItemGroup>
