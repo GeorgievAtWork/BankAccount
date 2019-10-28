@@ -38,18 +38,18 @@
             // 
             this.panelAmount.BackColor = System.Drawing.Color.White;
             this.panelAmount.ForeColor = System.Drawing.Color.Maroon;
-            this.panelAmount.Location = new System.Drawing.Point(265, 203);
+            this.panelAmount.Location = new System.Drawing.Point(265, 230);
             this.panelAmount.Name = "panelAmount";
             this.panelAmount.Size = new System.Drawing.Size(200, 1);
             this.panelAmount.TabIndex = 30;
             // 
             // txtDepositAmount
             // 
-            this.txtDepositAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.txtDepositAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.txtDepositAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDepositAmount.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDepositAmount.ForeColor = System.Drawing.Color.White;
-            this.txtDepositAmount.Location = new System.Drawing.Point(265, 177);
+            this.txtDepositAmount.Location = new System.Drawing.Point(265, 204);
             this.txtDepositAmount.Name = "txtDepositAmount";
             this.txtDepositAmount.Size = new System.Drawing.Size(200, 20);
             this.txtDepositAmount.TabIndex = 29;
@@ -63,7 +63,7 @@
             this.lblDepositTitle.AutoSize = true;
             this.lblDepositTitle.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepositTitle.ForeColor = System.Drawing.Color.White;
-            this.lblDepositTitle.Location = new System.Drawing.Point(43, 24);
+            this.lblDepositTitle.Location = new System.Drawing.Point(43, 51);
             this.lblDepositTitle.Name = "lblDepositTitle";
             this.lblDepositTitle.Size = new System.Drawing.Size(470, 25);
             this.lblDepositTitle.TabIndex = 31;
@@ -77,7 +77,7 @@
             this.btnDeposit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeposit.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeposit.ForeColor = System.Drawing.Color.Lime;
-            this.btnDeposit.Location = new System.Drawing.Point(590, 310);
+            this.btnDeposit.Location = new System.Drawing.Point(590, 337);
             this.btnDeposit.Name = "btnDeposit";
             this.btnDeposit.Size = new System.Drawing.Size(109, 43);
             this.btnDeposit.TabIndex = 32;
@@ -89,15 +89,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.Controls.Add(this.btnDeposit);
             this.Controls.Add(this.lblDepositTitle);
             this.Controls.Add(this.panelAmount);
             this.Controls.Add(this.txtDepositAmount);
-            this.MaximumSize = new System.Drawing.Size(731, 381);
-            this.MinimumSize = new System.Drawing.Size(731, 381);
+            this.MaximumSize = new System.Drawing.Size(731, 431);
+            this.MinimumSize = new System.Drawing.Size(731, 431);
             this.Name = "Deposit";
-            this.Size = new System.Drawing.Size(731, 381);
+            this.Size = new System.Drawing.Size(731, 431);
             this.ResumeLayout(false);
             this.PerformLayout();
 

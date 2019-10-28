@@ -413,8 +413,9 @@ namespace Bank
             }
         }
 
-
-
-
+        private void lblMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

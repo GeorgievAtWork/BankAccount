@@ -108,8 +108,8 @@ namespace Bank
                     txtPwd.ForeColor = Color.Red;
                     panel2.BackColor = Color.Red;
                     panel3.BackColor = Color.Red;
-                    pictureBox2.BackgroundImage = new Bitmap(Bank.Properties.Resources.user_red);
-                    pictureBox3.BackgroundImage = new Bitmap(Bank.Properties.Resources.lock_red);
+                    pictureBox2.BackgroundImage = new Bitmap(Bank.Properties.Resources.userred);
+                    pictureBox3.BackgroundImage = new Bitmap(Bank.Properties.Resources.lockred);
 
                 }
             }
@@ -118,13 +118,9 @@ namespace Bank
         private void btnReg_Click(object sender, EventArgs e)
         {
             Register frm = new Register();
-            frm.Show();
+            frm.ShowDialog();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void txtUser_Focus(object sender, EventArgs e)
         {
@@ -175,7 +171,15 @@ namespace Bank
             }
         }
 
-       
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void lblMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
 

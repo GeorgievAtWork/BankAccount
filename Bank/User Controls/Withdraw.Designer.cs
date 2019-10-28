@@ -42,7 +42,7 @@
             this.btnWithdraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWithdraw.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWithdraw.ForeColor = System.Drawing.Color.Lime;
-            this.btnWithdraw.Location = new System.Drawing.Point(590, 310);
+            this.btnWithdraw.Location = new System.Drawing.Point(590, 337);
             this.btnWithdraw.Name = "btnWithdraw";
             this.btnWithdraw.Size = new System.Drawing.Size(109, 43);
             this.btnWithdraw.TabIndex = 36;
@@ -54,18 +54,18 @@
             // 
             this.panelAmount.BackColor = System.Drawing.Color.White;
             this.panelAmount.ForeColor = System.Drawing.Color.Maroon;
-            this.panelAmount.Location = new System.Drawing.Point(265, 203);
+            this.panelAmount.Location = new System.Drawing.Point(265, 230);
             this.panelAmount.Name = "panelAmount";
             this.panelAmount.Size = new System.Drawing.Size(200, 1);
             this.panelAmount.TabIndex = 34;
             // 
             // txtWithdrawAmount
             // 
-            this.txtWithdrawAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.txtWithdrawAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.txtWithdrawAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtWithdrawAmount.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWithdrawAmount.ForeColor = System.Drawing.Color.White;
-            this.txtWithdrawAmount.Location = new System.Drawing.Point(265, 177);
+            this.txtWithdrawAmount.Location = new System.Drawing.Point(265, 204);
             this.txtWithdrawAmount.Name = "txtWithdrawAmount";
             this.txtWithdrawAmount.Size = new System.Drawing.Size(200, 20);
             this.txtWithdrawAmount.TabIndex = 33;
@@ -79,7 +79,7 @@
             this.lblWithdrawTitle.AutoSize = true;
             this.lblWithdrawTitle.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWithdrawTitle.ForeColor = System.Drawing.Color.White;
-            this.lblWithdrawTitle.Location = new System.Drawing.Point(43, 24);
+            this.lblWithdrawTitle.Location = new System.Drawing.Point(43, 51);
             this.lblWithdrawTitle.Name = "lblWithdrawTitle";
             this.lblWithdrawTitle.Size = new System.Drawing.Size(489, 25);
             this.lblWithdrawTitle.TabIndex = 35;
@@ -89,15 +89,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.Controls.Add(this.btnWithdraw);
             this.Controls.Add(this.lblWithdrawTitle);
             this.Controls.Add(this.panelAmount);
             this.Controls.Add(this.txtWithdrawAmount);
-            this.MaximumSize = new System.Drawing.Size(731, 381);
-            this.MinimumSize = new System.Drawing.Size(731, 381);
+            this.MaximumSize = new System.Drawing.Size(731, 431);
+            this.MinimumSize = new System.Drawing.Size(731, 431);
             this.Name = "Withdraw";
-            this.Size = new System.Drawing.Size(731, 381);
+            this.Size = new System.Drawing.Size(731, 431);
             this.ResumeLayout(false);
             this.PerformLayout();
 

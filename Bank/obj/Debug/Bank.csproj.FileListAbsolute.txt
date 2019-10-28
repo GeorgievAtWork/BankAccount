@@ -16,3 +16,4 @@ C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Custom_Co
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Custom_Controls.Deposit.resources
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Custom_Controls.Withdraw.resources
 C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.Custom_Controls.Logs.resources
+C:\Users\Georgiev\Desktop\Uni\VSP\Bank\BankAccount\Bank\obj\Debug\Bank.csprojAssemblyReference.cache

@@ -38,7 +38,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(43, 24);
+            this.lblName.Location = new System.Drawing.Point(43, 51);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(143, 25);
             this.lblName.TabIndex = 0;
@@ -49,7 +49,7 @@
             this.lblBalanceText.AutoSize = true;
             this.lblBalanceText.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalanceText.ForeColor = System.Drawing.Color.White;
-            this.lblBalanceText.Location = new System.Drawing.Point(257, 178);
+            this.lblBalanceText.Location = new System.Drawing.Point(257, 203);
             this.lblBalanceText.Name = "lblBalanceText";
             this.lblBalanceText.Size = new System.Drawing.Size(159, 25);
             this.lblBalanceText.TabIndex = 1;
@@ -60,7 +60,7 @@
             this.lblBalance.AutoSize = true;
             this.lblBalance.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalance.ForeColor = System.Drawing.Color.White;
-            this.lblBalance.Location = new System.Drawing.Point(422, 178);
+            this.lblBalance.Location = new System.Drawing.Point(422, 203);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(51, 25);
             this.lblBalance.TabIndex = 2;
@@ -71,14 +71,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.Controls.Add(this.lblBalance);
             this.Controls.Add(this.lblBalanceText);
             this.Controls.Add(this.lblName);
-            this.MaximumSize = new System.Drawing.Size(731, 381);
-            this.MinimumSize = new System.Drawing.Size(731, 381);
+            this.MaximumSize = new System.Drawing.Size(731, 431);
+            this.MinimumSize = new System.Drawing.Size(731, 431);
             this.Name = "Dashboard";
-            this.Size = new System.Drawing.Size(731, 381);
+            this.Size = new System.Drawing.Size(731, 431);
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
